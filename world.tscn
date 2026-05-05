@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://sdlepbsw88gj"]
 
 [ext_resource type="Script" uid="uid://cmfxshq745qb2" path="res://player.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://bgkdsv1xc8d0i" path="res://Mixamo/Idle.fbx" id="2_fj7yv"]
 
 [sub_resource type="Environment" id="Environment_fj7yv"]
 
@@ -46,3 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 spring_length = 4.0
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot/SpringArm3D" unique_id=2074251974]
+
+[node name="Idle" parent="Player" unique_id=291874965 instance=ExtResource("2_fj7yv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82343674, 0.14904928, 1.616542)
