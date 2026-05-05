@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://sdlepbsw88gj"]
+
+[ext_resource type="Script" uid="uid://cmfxshq745qb2" path="res://player.gd" id="1_f3sb7"]
+
+[sub_resource type="Environment" id="Environment_fj7yv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tlwt5"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_036b0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dwbse"]
+
+[node name="World" type="Node3D" unique_id=593754463]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1971515170]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=721643544]
+environment = SubResource("Environment_fj7yv")
+
+[node name="Chão" type="StaticBody3D" parent="." unique_id=2005074781]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chão" unique_id=1219153275]
+shape = SubResource("BoxShape3D_tlwt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Chão" unique_id=1881991634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.017033458, 0)
+mesh = SubResource("BoxMesh_aqk2v")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=244595769]
+script = ExtResource("1_f3sb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1029796170]
+shape = SubResource("CapsuleShape3D_036b0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=497255817]
+mesh = SubResource("BoxMesh_dwbse")
+
+[node name="CameraPivot" type="Node3D" parent="Player" unique_id=640922423]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/CameraPivot" unique_id=819715090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot/SpringArm3D" unique_id=2074251974]
